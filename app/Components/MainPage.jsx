@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar'
 import PhotoCard from './PhotoCard';
 import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroll-component';
+
 function MainPage() {
    const [newApiData, setApiData] = useState([])
    const [page, setpage] = useState(1)
@@ -29,13 +29,13 @@ function MainPage() {
          <div id="showPHotos" className='min-h-[90vh] w-[100%]  flex flex-col gap-2 items-center'>
             <div id="heading" className='  w-[100%] min-h-[10vh]'>
                <h1 className='text-[3vw] pl-[3.5vw] font-[Antic Didone] tracking-[0.2vw] uppercase text-black border-gray-950 border-b-2 '>Photos</h1></div>
-            <div id="grid" className='min-h-[78vh] w-[96%] flex gap-5 flex-wrap  justify-center'>
+            <div id="grid" className='min-h-[78vh] w-[96%]  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 '>
 
 
 
 {
    newApiData.map((eachData,index)=>{
-     return <PhotoCard key={index} data={eachData}/>
+     return <PhotoCard key={index} index={index} data={eachData}/>
    })
 
 }
